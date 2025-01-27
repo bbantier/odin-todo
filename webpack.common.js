@@ -8,7 +8,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "Todo",
-      template: "./template.html"
+      template: "./src/template.html"
     }),
   ],
   output: {
@@ -18,6 +18,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.html$/i,
+        use: "html-loader",
+      },
       {
         test: /\.(jpg|png|svg|gif)$/i,
         type: "asset/resource",
