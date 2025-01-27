@@ -7,12 +7,25 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Production",
+      title: "Todo",
+      template: "./template.html"
     }),
   ],
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(jpg|png|svg|gif)$/i,
+        type: "asset/resource",
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
 };
