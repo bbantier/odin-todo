@@ -1,0 +1,14 @@
+.project-list {
+  margin-top: 10px;
+}
+
+.project-input {
+  width: 100%;
+  padding: var(--gen-spacing);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--main-bg-color);
+  outline: none;
+  font-size: 1rem;
+  color: var(--main-bg-color);
+}
