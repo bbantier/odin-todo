@@ -6,9 +6,7 @@ export class TodoItem {
     this.priority = priority;
   }
 
-  render() {
-
-  }
+  render() {}
 }
 
 export class TodoForm {
@@ -17,7 +15,7 @@ export class TodoForm {
     const titleInput = document.createElement("input");
     const dateInput = document.createElement("input");
     const descriptionArea = document.createElement("textarea");
-    const priorityButton = document.createElement("button");
+    const priorityInput = document.createElement("input");
 
     form.className = "todo-form";
 
@@ -25,7 +23,14 @@ export class TodoForm {
     titleInput.type = "text";
     titleInput.maxLength = 50;
 
+    dateInput.className = "date-input";
+    dateInput.type = "date";
 
+    descriptionArea.className = "description-area";
 
+    priorityInput.className = "priority-input";
+    priorityInput.type = "select";
+
+    form.append(titleInput, dateInput, descriptionArea, priorityInput);
   }
 }
