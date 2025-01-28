@@ -1,7 +1,7 @@
 .todo-form {
   padding: calc(2 * var(--gen-spacing));
   background-color: white;
-  border: 1px solid #afafaf;
+  border: 1px solid #dfdfdf;
   border-radius: var(--gen-spacing);
   display: flex;
   flex-direction: column;
@@ -11,12 +11,10 @@
 .todo-form input,
 .todo-form textarea,
 .todo-form select {
-  font-size: 1rem;
   background-color: transparent;
   border: 1px solid #afafaf;
   padding: var(--gen-spacing);
   outline: none;
-  border-radius: var(--gen-spacing);
   font-family: var(--main-app-fonts);
 }
 
@@ -27,11 +25,39 @@ textarea {
 .form-top {
   display: grid;
   gap: var(--gen-spacing);
-}
-
-.form-top {
   margin-bottom: calc(2 * var(--gen-spacing));
   grid-template-rows: 1fr 2fr;
+}
+
+.form-top .title-input {
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.form-top .title-input::placeholder {
+  color: transparent;
+}
+
+.form-top .title-input:focus::placeholder {
+  color: lightgray;
+}
+
+.form-top .description-input::placeholder {
+  color: transparent;
+}
+
+.form-top .description-input:focus::placeholder {
+  color: lightgray;
+}
+
+.form-top .description-input {
+  border: none;
+  border-radius: var(--gen-spacing);
+}
+
+.form-top .description-input:focus {
+  border: 1px solid #afafaf;
 }
 
 .form-bottom {
@@ -42,8 +68,10 @@ textarea {
 .form-bottom input,
 .form-bottom select {
   font-size: 0.9rem;
+  color: gray;
   text-align: center;
   width: 100px;
+  border-radius: var(--gen-spacing);
 }
 
 select {
