@@ -22,7 +22,7 @@ export class TodoForm {
     const formBottom = document.createElement("div");
     const dateInput = document.createElement("input");
     const prioritySelect = document.createElement("select");
-    const priorityOptions = ["Priority", "High", "Medium", "Low"];
+    const priorityOptions = ["High", "Medium", "Low"];
 
     form.className = "todo-form";
 
@@ -54,7 +54,9 @@ export class TodoForm {
 
     priorityOptions.forEach((option) => {
       const priorityOption = document.createElement("option");
+
       priorityOption.textContent = option;
+      priorityOption.selected = option === "Medium" ? "selected" : "";
       prioritySelect.appendChild(priorityOption);
     });
 
