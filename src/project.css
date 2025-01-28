@@ -16,3 +16,8 @@
   font-size: 1rem;
   color: var(--main-bg-color);
 }
+
+.project-item {
+  text-transform: capitalize;
+  padding: var(--gen-spacing);
+}

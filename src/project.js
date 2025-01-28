@@ -1,3 +1,5 @@
+import listIcon from "./list.svg";
+
 export class Project {
   constructor(name) {
     this.name = name;
@@ -6,7 +8,12 @@ export class Project {
 
   render() {
     const projectItem = document.createElement("li");
+    const icon = document.createElement("img");
+
+    icon.src = listIcon;
+
     projectItem.className = "project-item";
+    projectItem.append(icon);
     projectItem.textContent = this.name;
 
     return projectItem;
