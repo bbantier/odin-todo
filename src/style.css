@@ -22,29 +22,34 @@
 body {
   padding: var(--gen-spacing);
   background-color: var(--body-bg-color);
+  display: grid;
+  gap: var(--gen-spacing);
+  grid-template-columns: minmax(0, 200px) minmax(100px, 1000px);
+  justify-content: center;
 }
 
-.header,
+.sidebar,
 .main {
-  margin: 0 auto;
-  max-width: 1200px;
+  height: calc(100vh - var(--gen-spacing) * 2);
 }
 
-.header {
-  margin-bottom: var(--gen-spacing);
-  height: var(--header-height);
+.sidebar {
   padding: var(--gen-spacing) 10px;
   border-radius: 5px;
   background-color: var(--accent-color);
   color: var(--body-bg-color);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 2px;
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .main {
   padding: var(--gen-spacing);
-  height: calc(100vh - var(--header-height) - var(--gen-spacing) * 3);
   background-color: var(--main-bg-color);
   border-radius: 5px;
 }
