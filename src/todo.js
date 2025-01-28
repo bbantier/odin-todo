@@ -1,12 +1,27 @@
 export class TodoItem {
   constructor(title, description, dueDate, priority = "2") {
+    this.done = false;
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
   }
 
-  render() {}
+  render() {
+    const todoItem = document.createElement("div");
+
+    todoItem.className = "todo-item";
+
+    todoItem.innerHTML = `
+      <div class="todo-item-left">
+        <input class="todo-done" type="checkbox">
+        <h3 class="todo-title">${this.title}</h3> 
+      </div>
+      <span class="todo-date">${this.dueDate}</span>
+    `;
+
+    return todoItem;
+  }
 }
 
 export class TodoForm {

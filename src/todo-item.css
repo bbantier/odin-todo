@@ -1,0 +1,26 @@
+.todo-item {
+  margin-bottom: calc(2 * var(--gen-spacing));
+  padding: calc(2 * var(--gen-spacing));
+  background-color: white;
+  border-radius: var(--gen-spacing);
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-item .todo-item-left {
+  display: flex;
+  align-items: center;
+  gap: var(--gen-spacing);
+}
+
+.todo-item .todo-title {
+  font-size: 0.9rem;
+}
+
+.todo-item .todo-date {
+  padding: 2px var(--gen-spacing);
+  background-color: #afafaf;
+  color: white;
+  border-radius: 10px;
+  font-size: 0.7rem;
+}
