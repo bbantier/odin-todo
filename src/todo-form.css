@@ -35,22 +35,6 @@ textarea {
   font-weight: bold;
 }
 
-.form-top .title-input::placeholder {
-  color: transparent;
-}
-
-.form-top .title-input:focus::placeholder {
-  color: lightgray;
-}
-
-.form-top .description-input::placeholder {
-  color: transparent;
-}
-
-.form-top .description-input:focus::placeholder {
-  color: lightgray;
-}
-
 .form-top .description-input {
   border: none;
   border-radius: var(--gen-spacing);
@@ -65,15 +49,20 @@ textarea {
   gap: var(--gen-spacing);
 }
 
-.form-bottom input,
+.form-bottom button,
 .form-bottom select {
+  padding: var(--gen-spacing);
   font-size: 0.9rem;
-  color: gray;
+  color: #606368;
   text-align: center;
-  width: 100px;
+  border: 1px solid #afafaf;
   border-radius: var(--gen-spacing);
 }
 
-select {
+.form-bottom .date-button {
+  background-color: white;
+}
+
+.form-bottom .priority-select {
   appearance: none;
 }

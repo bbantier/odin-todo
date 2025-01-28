@@ -1,5 +1,5 @@
 import "./style.css";
-import "./todo.css";
+import "./todo-form.css";
 import { TodoForm } from "./todo";
 
 const mainDiv = document.querySelector(".main");

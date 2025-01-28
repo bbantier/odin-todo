@@ -20,7 +20,7 @@ export class TodoForm {
     const descriptionInput = document.createElement("textarea");
 
     const formBottom = document.createElement("div");
-    const dateInput = document.createElement("input");
+    const dateButton = document.createElement("button");
     const prioritySelect = document.createElement("select");
     const priorityOptions = ["High", "Medium", "Low"];
 
@@ -40,15 +40,9 @@ export class TodoForm {
 
     formBottom.className = "form-bottom";
 
-    dateInput.className = "date-input";
-    dateInput.type = "text";
-    dateInput.placeholder = "Due Date";
-    dateInput.onfocus = function () {
-      this.type = "date";
-    };
-    dateInput.onblur = function () {
-      this.type = "text";
-    };
+    dateButton.className = "date-button";
+    dateButton.type = "button";
+    dateButton.textContent = "Date";
 
     prioritySelect.className = "priority-select";
 
@@ -60,7 +54,7 @@ export class TodoForm {
       prioritySelect.appendChild(priorityOption);
     });
 
-    formBottom.append(dateInput, prioritySelect);
+    formBottom.append(dateButton, prioritySelect);
 
     form.append(formTop, formBottom);
 
