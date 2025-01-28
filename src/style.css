@@ -14,7 +14,6 @@
   --accent-color: #484b57;
   --main-app-fonts: "Roboto", "Helvetica", "Tahoma", sans-serif;
   --gen-spacing: 5px;
-  --header-height: 40px;
   font-family: var(--main-app-fonts);
   font-size: 18px;
 }
@@ -72,6 +71,7 @@ body {
 }
 
 .new-project {
+  margin-top: 15px;
   display: flex;
   align-items: center;
   gap: var(--gen-spacing);

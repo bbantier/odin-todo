@@ -5,19 +5,6 @@ export class Project {
     this.name = name;
     this.todos = [];
   }
-
-  render() {
-    const projectItem = document.createElement("li");
-    const icon = document.createElement("img");
-
-    icon.src = listIcon;
-
-    projectItem.className = "project-item";
-    projectItem.append(icon);
-    projectItem.textContent = this.name;
-
-    return projectItem;
-  }
 }
 
 export class ProjectForm {
@@ -40,7 +27,7 @@ export class ProjectForm {
       const projectInput = document.querySelector(".project-input");
       const projectItem = new Project(projectInput.value);
 
-      localStorage.setItem(projectItem.name, projectItem);
+      localStorage.setItem(projectItem.name, JSON.stringify(projectItem));
       refreshProjectList();
     });
 
@@ -48,13 +35,31 @@ export class ProjectForm {
   }
 }
 
-const refreshProjectList = () => {
+export const refreshProjectList = () => {
   const projectList = document.querySelector(".project-list");
-  const children = document.querySelectorAll(".project-item");
+  const projectItems = document.querySelectorAll(".project-item");
+  const projectForm = document.querySelector(".project-form");
 
-  children.forEach((element) => element.remove());
+  projectItems.forEach((element) => element.remove());
+  if (projectForm) projectForm.remove();
+
+  const renderProjectItem = (name) => {
+    const projectItem = document.createElement("li");
+    const icon = document.createElement("img");
+
+    icon.src = listIcon;
+
+    projectItem.className = "project-item";
+    projectItem.append(icon);
+    projectItem.textContent = name;
+
+    return projectItem;
+  };
 
   Object.keys(localStorage).forEach((key) => {
-    projectList.appendChild(new Project(key).render());
-  })
+    const project = JSON.parse(localStorage.getItem(key));
+    const projectItem = renderProjectItem(project.name);
+
+    projectList.appendChild(projectItem);
+  });
 };

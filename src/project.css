@@ -20,4 +20,5 @@
 .project-item {
   text-transform: capitalize;
   padding: var(--gen-spacing);
+  cursor: pointer;
 }
