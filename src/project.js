@@ -40,7 +40,7 @@ export class ProjectForm {
       const projectInput = document.querySelector(".project-input");
       const projectItem = new Project(projectInput.value);
 
-      localStorage.setItem(projectItem.name, projectItem.todos);
+      localStorage.setItem(projectItem.name, projectItem);
       refreshProjectList();
     });
 
