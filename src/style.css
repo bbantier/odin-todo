@@ -56,6 +56,11 @@ body {
   cursor: pointer;
 }
 
+.all-projects::before {
+  content: url(./asterisk.svg);
+  vertical-align: -15%;
+}
+
 .main {
   padding: calc(2 * var(--gen-spacing));
   background-color: var(--main-bg-color);
