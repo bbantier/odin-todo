@@ -70,3 +70,9 @@ body {
 .page-title {
   font-size: 1.4rem;
 }
+
+.new-project {
+  display: flex;
+  align-items: center;
+  gap: var(--gen-spacing);
+}
