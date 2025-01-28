@@ -2,6 +2,10 @@
   margin-top: 10px;
 }
 
+.project-form {
+  margin-bottom: var(--gen-spacing);
+}
+
 .project-input {
   width: 100%;
   padding: var(--gen-spacing);
