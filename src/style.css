@@ -9,27 +9,44 @@
 }
 
 :root {
-  --bg-color: #f4f6fd;
+  --body-bg-color: #e1e3ea;
+  --main-bg-color: #f1f1f6;
   --accent-color: #484b57;
   --main-app-fonts: "Roboto", "Helvetica", "Tahoma", sans-serif;
+  --gen-spacing: 5px;
+  --header-height: 40px;
   font-family: var(--main-app-fonts);
   font-size: 16px;
 }
 
 body {
+  padding: var(--gen-spacing);
+  background-color: var(--body-bg-color);
+}
+
+.header,
+.main {
   margin: 0 auto;
   max-width: 1200px;
-  background-color: var(--bg-color);
 }
 
 .header {
-  margin: 5px;
-  padding: 5px 10px;
+  margin-bottom: var(--gen-spacing);
+  height: var(--header-height);
+  padding: var(--gen-spacing) 10px;
   border-radius: 5px;
   background-color: var(--accent-color);
-  color: var(--bg-color);
+  color: var(--body-bg-color);
   display: flex;
+  align-items: center;
   gap: 2px;
+}
+
+.main {
+  padding: var(--gen-spacing);
+  height: calc(100vh - var(--header-height) - var(--gen-spacing) * 3);
+  background-color: var(--main-bg-color);
+  border-radius: 5px;
 }
 
 .page-title {
