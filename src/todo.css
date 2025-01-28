@@ -1,0 +1,51 @@
+.todo-form {
+  padding: calc(2 * var(--gen-spacing));
+  background-color: white;
+  border: 1px solid #afafaf;
+  border-radius: var(--gen-spacing);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gen-spacing);
+}
+
+.todo-form input,
+.todo-form textarea,
+.todo-form select {
+  font-size: 1rem;
+  background-color: transparent;
+  border: 1px solid #afafaf;
+  padding: var(--gen-spacing);
+  outline: none;
+  border-radius: var(--gen-spacing);
+  font-family: var(--main-app-fonts);
+}
+
+textarea {
+  resize: none;
+}
+
+.form-top {
+  display: grid;
+  gap: var(--gen-spacing);
+}
+
+.form-top {
+  margin-bottom: calc(2 * var(--gen-spacing));
+  grid-template-rows: 1fr 2fr;
+}
+
+.form-bottom {
+  display: flex;
+  gap: var(--gen-spacing);
+}
+
+.form-bottom input,
+.form-bottom select {
+  font-size: 0.9rem;
+  text-align: center;
+  width: 100px;
+}
+
+select {
+  appearance: none;
+}
