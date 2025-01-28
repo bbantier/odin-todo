@@ -34,7 +34,7 @@ body {
 }
 
 .sidebar {
-  padding: var(--gen-spacing) 10px;
+  padding: calc(2 * var(--gen-spacing));
   border-radius: 5px;
   background-color: var(--accent-color);
   color: var(--body-bg-color);
@@ -44,8 +44,16 @@ body {
 }
 
 .logo-wrapper {
+  margin-bottom: 50px;
   display: flex;
   justify-content: flex-start;
+}
+
+.all-projects {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .main {
