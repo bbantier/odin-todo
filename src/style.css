@@ -71,7 +71,12 @@ body {
 }
 
 .new-project {
+  width: 58%;
   margin-top: 15px;
+  padding: 2px var(--gen-spacing);
+  font-size: 0.7rem;
+  border: 1px solid var(--main-bg-color);
+  border-radius: var(--gen-spacing);
   display: flex;
   align-items: center;
   gap: var(--gen-spacing);
