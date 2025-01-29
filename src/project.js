@@ -1,9 +1,49 @@
-import listIcon from "./list.svg";
+import { initUi } from "./app";
 
 export class Project {
   constructor(name) {
     this.name = name;
     this.todos = [];
+  }
+}
+
+export class ProjectList {
+  constructor() {
+    this.projects = [];
+  }
+
+  init() {
+    Object.keys(localStorage).forEach((key) => {
+      const project = JSON.parse(localStorage.getItem(key));
+      this.projects.push(project);
+    });
+  }
+
+  refresh() {
+    const projectItems = document.querySelectorAll(".project-item");
+    const projectForm = document.querySelector(".project-form");
+
+    projectItems.forEach((element) => element.remove());
+    if (projectForm) projectForm.remove();
+
+    this.render();
+  }
+
+  render() {
+    const projectList = document.createElement("ul");
+
+    projectList.className = "project-list";
+
+    this.projects.forEach((project) => {
+      const projectItem = document.createElement("li");
+
+      projectItem.className = "project-item";
+      projectItem.textContent = project.name;
+
+      projectList.appendChild(projectItem);
+    });
+
+    return projectList;
   }
 }
 
@@ -25,41 +65,12 @@ export class ProjectForm {
       e.preventDefault();
 
       const projectInput = document.querySelector(".project-input");
-      const projectItem = new Project(projectInput.value);
+      const project = new Project(projectInput.value);
 
-      localStorage.setItem(projectItem.name, JSON.stringify(projectItem));
-      refreshProjectList();
+      localStorage.setItem(project.name, JSON.stringify(project));
+      initUi();
     });
 
     return projectForm;
   }
 }
-
-export const refreshProjectList = () => {
-  const projectList = document.querySelector(".project-list");
-  const projectItems = document.querySelectorAll(".project-item");
-  const projectForm = document.querySelector(".project-form");
-
-  projectItems.forEach((element) => element.remove());
-  if (projectForm) projectForm.remove();
-
-  const renderProjectItem = (name) => {
-    const projectItem = document.createElement("li");
-    const icon = document.createElement("img");
-
-    icon.src = listIcon;
-
-    projectItem.className = "project-item";
-    projectItem.append(icon);
-    projectItem.textContent = name;
-
-    return projectItem;
-  };
-
-  Object.keys(localStorage).forEach((key) => {
-    const project = JSON.parse(localStorage.getItem(key));
-    const projectItem = renderProjectItem(project.name);
-
-    projectList.appendChild(projectItem);
-  });
-};
