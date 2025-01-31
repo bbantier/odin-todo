@@ -2,6 +2,7 @@ import { initUi } from "./app";
 
 export class Project {
   constructor(name) {
+    this.id = crypto.randomUUID();
     this.name = name;
     this.todos = [];
   }
@@ -67,7 +68,7 @@ export class ProjectForm {
       const projectInput = document.querySelector(".project-input");
       const project = new Project(projectInput.value);
 
-      localStorage.setItem(project.name, JSON.stringify(project));
+      localStorage.setItem(project.id, JSON.stringify(project));
       initUi();
     });
 
