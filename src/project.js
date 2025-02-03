@@ -1,4 +1,4 @@
-import { initUi } from "./app";
+import { refreshUi } from "./app";
 
 export class Project {
   constructor(name) {
@@ -21,10 +21,7 @@ export class ProjectList {
   }
 
   refresh() {
-    const projectItems = document.querySelectorAll(".project-item");
     const projectForm = document.querySelector(".project-form");
-
-    projectItems.forEach((element) => element.remove());
     if (projectForm) projectForm.remove();
 
     this.render();
@@ -69,7 +66,7 @@ export class ProjectForm {
       const project = new Project(projectInput.value);
 
       localStorage.setItem(project.id, JSON.stringify(project));
-      initUi();
+      refreshUi();
     });
 
     return projectForm;

@@ -9,17 +9,22 @@ const main = document.querySelector(".main");
 const sidebar = document.querySelector(".sidebar");
 const newProjectButton = document.querySelector(".new-project");
 
-document.addEventListener("DOMContentLoaded", () => initUi());
+document.addEventListener("DOMContentLoaded", () => refreshUi());
 
 newProjectButton.addEventListener("click", () => {
   const projectList = document.querySelector(".project-list");
   const projectForm = new ProjectForm().render();
 
   projectList.appendChild(projectForm);
+
+  const projectInput = document.querySelector(".project-input");
+  projectInput.focus();
 });
 
 
-export const initUi = () => {
+export const refreshUi = () => {
+  const oldList = document.querySelector(".project-list");
+  if(oldList) oldList.remove();
   const projectList = new ProjectList();
 
   projectList.refresh();
