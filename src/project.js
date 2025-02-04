@@ -30,8 +30,10 @@ export class ProjectList {
   }
 
   deleteProject(project) {
-    localStorage.getItem(project.id).remove();    
-    this.refresh();
+    if (confirm("Are you sure you want to delete this project?")) {
+      localStorage.removeItem(project.id);
+      refreshUi();
+    }
   }
 
   render() {
@@ -48,9 +50,14 @@ export class ProjectList {
       const deleteIcon = document.createElement("img");
 
       projectItem.className = "project-item";
+      projectItem.id = project.id;
       projectIcon.src = listIcon;
       projectName.textContent = project.name;
       deleteIcon.src = trashIcon;
+
+      projectDelete.addEventListener("click", () => {
+        this.deleteProject(project);
+      });
 
       container.append(projectIcon, projectName);
       projectDelete.append(deleteIcon);
