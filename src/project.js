@@ -1,5 +1,6 @@
 import { refreshUi } from "./app";
-import trashIcon from "./trash.svg"
+import trashIcon from "./trash.svg";
+import listIcon from "./list.svg";
 
 export class Project {
   constructor(name) {
@@ -40,16 +41,20 @@ export class ProjectList {
 
     this.projects.forEach((project) => {
       const projectItem = document.createElement("li");
+      const container = document.createElement("div");
+      const projectIcon = document.createElement("img");
       const projectName = document.createElement("span");
       const projectDelete = document.createElement("button");
       const deleteIcon = document.createElement("img");
 
       projectItem.className = "project-item";
+      projectIcon.src = listIcon;
       projectName.textContent = project.name;
       deleteIcon.src = trashIcon;
 
+      container.append(projectIcon, projectName);
       projectDelete.append(deleteIcon);
-      projectItem.append(projectName, projectDelete);
+      projectItem.append(container, projectDelete);
       projectList.appendChild(projectItem);
     });
 

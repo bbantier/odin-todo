@@ -21,4 +21,20 @@
   text-transform: capitalize;
   padding: var(--gen-spacing);
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-item > div {
+  display: flex;
+  align-items: center;
+  gap: var(--gen-spacing);
+}
+
+.project-item > button {
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
