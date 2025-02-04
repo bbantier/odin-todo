@@ -1,4 +1,5 @@
 import { refreshUi } from "./app";
+import trashIcon from "./trash.svg"
 
 export class Project {
   constructor(name) {
@@ -27,6 +28,11 @@ export class ProjectList {
     this.render();
   }
 
+  deleteProject(project) {
+    localStorage.getItem(project.id).remove();    
+    this.refresh();
+  }
+
   render() {
     const projectList = document.createElement("ul");
 
@@ -34,10 +40,16 @@ export class ProjectList {
 
     this.projects.forEach((project) => {
       const projectItem = document.createElement("li");
+      const projectName = document.createElement("span");
+      const projectDelete = document.createElement("button");
+      const deleteIcon = document.createElement("img");
 
       projectItem.className = "project-item";
-      projectItem.textContent = project.name;
+      projectName.textContent = project.name;
+      deleteIcon.src = trashIcon;
 
+      projectDelete.append(deleteIcon);
+      projectItem.append(projectName, projectDelete);
       projectList.appendChild(projectItem);
     });
 
