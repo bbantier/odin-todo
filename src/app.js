@@ -27,6 +27,7 @@ const projectList = (() => {
 
   const addProject = (name) => {
     const project = newProject(name);
+
     list.push(project);
     project.storeProject();
   };
@@ -45,6 +46,7 @@ const projectList = (() => {
 
 const initUi = () => {
   const sidebar = document.querySelector(".sidebar");
+
   projectList.init();
   sidebar.insertBefore(projectList.render(), newProjectButton);
   refreshUi();
