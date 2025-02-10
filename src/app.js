@@ -4,14 +4,11 @@ import "./todo-item.css";
 import "./project.css";
 import newProject from "./project";
 
-const main = document.querySelector(".main");
 const newProjectButton = document.querySelector(".new-project");
 
 const projectList = (() => {
   const list = [];
-
   const addProject = (name) => list.push(newProject(name));
-
   const getProjectList = () => list;
 
   const render = () => {
@@ -26,7 +23,7 @@ const projectList = (() => {
 
 const initUi = () => {
   const sidebar = document.querySelector(".sidebar");
-  sidebar.append(projectList.render());
+  sidebar.insertBefore(projectList.render(), newProjectButton);
 };
 
 const refreshUi = () => {
@@ -37,6 +34,8 @@ const refreshUi = () => {
 
   projectList.getProjectList().forEach((project) => {
     const listItem = document.createElement("li");
+
+    listItem.id = project.id;
     listItem.className = "project-item";
     listItem.textContent = project.name;
 
