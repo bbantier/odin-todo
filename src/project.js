@@ -7,6 +7,7 @@ const createProject = (name) => {
 
 export default function addProject (name) {
   const project = createProject(name);
+  localStorage.setItem(project.id, JSON.stringify(project));
 
   return Object.assign({}, project);
 }
