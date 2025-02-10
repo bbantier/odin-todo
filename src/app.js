@@ -5,18 +5,32 @@ import "./project.css";
 import newProject from "./project";
 
 const newProjectButton = document.querySelector(".new-project");
+const newTodoButton = document.querySelector(".new-todo");
 
 const projectList = (() => {
   const list = [];
 
   const init = () => {
     Object.keys(localStorage).forEach((key) => {
-      const project = newProject(JSON.parse(localStorage.getItem(key)).name);
-      list.push(project);
+      const storedProject = JSON.parse(localStorage.getItem(key));
+      list.push(newProject(storedProject.name, key));
+    });
+
+    list.forEach((project, index) => {
+      const storedTodos = JSON.parse(
+        (project.todos = Object.values(localStorage)[index])
+      ).todos;
+
+      project.todos = storedTodos;
     });
   };
 
-  const addProject = (name) => list.push(newProject(name));
+  const addProject = (name) => {
+    const project = newProject(name);
+    list.push(project);
+    project.storeProject();
+  };
+
   const getProjectList = () => list;
 
   const render = () => {
@@ -57,10 +71,10 @@ document.addEventListener("DOMContentLoaded", () => initUi());
 
 newProjectButton.addEventListener("click", () => {
   projectList.addProject(prompt());
-  console.log(projectList.getProjectList());
   refreshUi();
 });
 
-// newTodoButton.addEventListener("click", () => {
-//   projectList.getProjectList()[0].addTodo("test", "test", "test", "mid");
-// })
+newTodoButton.addEventListener("click", () => {
+  projectList.getProjectList()[0].addTodo("test", "test", "test", "mid");
+  projectList.getProjectList()[0].storeProject();
+});
