@@ -8,6 +8,14 @@ const newProjectButton = document.querySelector(".new-project");
 
 const projectList = (() => {
   const list = [];
+
+  const init = () => {
+    Object.keys(localStorage).forEach((key) => {
+      const project = newProject(JSON.parse(localStorage.getItem(key)).name);
+      list.push(project);
+    });
+  };
+
   const addProject = (name) => list.push(newProject(name));
   const getProjectList = () => list;
 
@@ -18,12 +26,14 @@ const projectList = (() => {
     return listElement;
   };
 
-  return { addProject, getProjectList, render };
+  return { init, addProject, getProjectList, render };
 })();
 
 const initUi = () => {
   const sidebar = document.querySelector(".sidebar");
+  projectList.init();
   sidebar.insertBefore(projectList.render(), newProjectButton);
+  refreshUi();
 };
 
 const refreshUi = () => {
@@ -47,5 +57,10 @@ document.addEventListener("DOMContentLoaded", () => initUi());
 
 newProjectButton.addEventListener("click", () => {
   projectList.addProject(prompt());
+  console.log(projectList.getProjectList());
   refreshUi();
 });
+
+// newTodoButton.addEventListener("click", () => {
+//   projectList.getProjectList()[0].addTodo("test", "test", "test", "mid");
+// })
