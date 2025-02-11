@@ -25,6 +25,12 @@ export default function addProject(name, id) {
     listItem.className = "project-item";
     listItem.textContent = project.name;
 
+    listItem.addEventListener("click", () => {
+      const main = document.querySelector(".main");
+      console.log(project.todos);
+      project.todos.forEach((todo) => todo.render(main));
+    })
+
     container.appendChild(listItem);
   }
 
