@@ -29,16 +29,16 @@ const projectList = (() => {
     const project = newProject(name);
 
     list.push(project);
-    project.storeProject();
+    project.store();
   };
 
   const getProjectList = () => list;
 
-  const render = () => {
+  const render = (container, before) => {
     const listElement = document.createElement("ul");
     listElement.className = "project-list";
 
-    return listElement;
+    container.insertBefore(listElement, before);
   };
 
   return { init, addProject, getProjectList, render };
@@ -48,7 +48,7 @@ const initUi = () => {
   const sidebar = document.querySelector(".sidebar");
 
   projectList.init();
-  sidebar.insertBefore(projectList.render(), newProjectButton);
+  projectList.render(sidebar, newProjectButton);
   refreshUi();
 };
 
@@ -71,5 +71,5 @@ newProjectButton.addEventListener("click", () => {
 
 newTodoButton.addEventListener("click", () => {
   projectList.getProjectList()[0].addTodo("test", "test", "test", "mid");
-  projectList.getProjectList()[0].storeProject();
+  projectList.getProjectList()[0].store();
 });

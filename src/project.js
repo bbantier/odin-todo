@@ -14,7 +14,7 @@ export default function addProject(name, id) {
     project.todos.push(todo);
   };
 
-  const storeProject = () => {
+  const store = () => {
     localStorage.setItem(project.id, JSON.stringify(project));
   }
 
@@ -28,5 +28,5 @@ export default function addProject(name, id) {
     container.appendChild(listItem);
   }
 
-  return Object.assign({}, project, { addTodo, storeProject, render });
+  return Object.assign({}, project, { addTodo, store, render });
 }
