@@ -1,4 +1,5 @@
 import newTodo, { todoButton } from "./todo";
+import listSvg from "./list.svg"
 
 const createProject = (name, id = crypto.randomUUID()) => {
   const todos = [];
@@ -30,10 +31,18 @@ export default function addProject(name, id) {
 
   const render = (container) => {
     const listItem = document.createElement("li");
+    const listIcon = document.createElement("img");
+
+    listItem.innerHTML = `
+      <div>
+        <img src="${listSvg}">
+        ${project.name}
+      </div>  
+    `
 
     listItem.id = project.id;
     listItem.className = "project-item";
-    listItem.textContent = project.name;
+    // listItem.textContent = project.name;
 
     listItem.addEventListener("click", () => {
       const main = document.querySelector(".main");

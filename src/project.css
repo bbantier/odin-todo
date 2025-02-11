@@ -28,7 +28,7 @@
 
 .project-item > div {
   display: flex;
-  align-items: center;
+  align-items: center; 
   gap: var(--gen-spacing);
 }
 
