@@ -31,7 +31,6 @@ export default function addProject(name, id) {
 
   const render = (container) => {
     const listItem = document.createElement("li");
-    const listIcon = document.createElement("img");
 
     listItem.innerHTML = `
       <div>
@@ -42,7 +41,6 @@ export default function addProject(name, id) {
 
     listItem.id = project.id;
     listItem.className = "project-item";
-    // listItem.textContent = project.name;
 
     listItem.addEventListener("click", () => {
       const main = document.querySelector(".main");
