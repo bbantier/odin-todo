@@ -15,11 +15,6 @@ const projectList = (() => {
       const storedProject = JSON.parse(localStorage.getItem(key));
       list.push(newProject(storedProject.name, key));
     });
-
-    list.forEach((project, index) => {
-      const storedTodos = JSON.parse(Object.values(localStorage)[index]).todos;
-      project.todos = storedTodos;
-    });
   };
 
   const addProject = (name) => {
@@ -58,6 +53,7 @@ const refreshUi = () => {
 
   projectList.getProjectList().forEach((project) => {
     const listElement = document.querySelector(".project-list");
+    project.refresh();
     project.render(listElement);
   });
 };

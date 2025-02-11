@@ -16,7 +16,18 @@ export default function addProject(name, id) {
 
   const store = () => {
     localStorage.setItem(project.id, JSON.stringify(project));
-  }
+  };
+
+  const refresh = () => {
+    const storedTodos = JSON.parse(localStorage.getItem(project.id)).todos;
+    storedTodos.forEach((todo) => {
+      project.todos.push(
+        newTodo(todo.title, todo.description, todo.dueDate, todo.priority)
+      );
+    });
+
+    console.log(storedTodos);
+  };
 
   const render = (container) => {
     const listItem = document.createElement("li");
@@ -26,11 +37,14 @@ export default function addProject(name, id) {
     listItem.textContent = project.name;
 
     listItem.addEventListener("click", () => {
+      const main = document.querySelector(".main");
+
+      project.todos.forEach((todo) => todo.render(main));
       console.log(project.todos);
-    })
+    });
 
     container.appendChild(listItem);
-  }
+  };
 
-  return Object.assign({}, project, { addTodo, store, render });
+  return Object.assign({}, project, { addTodo, store, refresh, render });
 }
