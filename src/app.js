@@ -17,10 +17,7 @@ const projectList = (() => {
     });
 
     list.forEach((project, index) => {
-      const storedTodos = JSON.parse(
-        (project.todos = Object.values(localStorage)[index])
-      ).todos;
-
+      const storedTodos = JSON.parse(Object.values(localStorage)[index]).todos;
       project.todos = storedTodos;
     });
   };
