@@ -18,5 +18,15 @@ export default function addProject(name, id) {
     localStorage.setItem(project.id, JSON.stringify(project));
   }
 
-  return Object.assign({}, project, { addTodo, storeProject });
+  const render = (container) => {
+    const listItem = document.createElement("li");
+
+    listItem.id = project.id;
+    listItem.className = "project-item";
+    listItem.textContent = project.name;
+
+    container.appendChild(listItem);
+  }
+
+  return Object.assign({}, project, { addTodo, storeProject, render });
 }

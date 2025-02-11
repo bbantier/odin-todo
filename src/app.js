@@ -53,19 +53,12 @@ const initUi = () => {
 };
 
 const refreshUi = () => {
-  const listElement = document.querySelector(".project-list");
   const projectItems = document.querySelectorAll(".project-item");
-
   projectItems.forEach((item) => item.remove());
 
   projectList.getProjectList().forEach((project) => {
-    const listItem = document.createElement("li");
-
-    listItem.id = project.id;
-    listItem.className = "project-item";
-    listItem.textContent = project.name;
-
-    listElement.append(listItem);
+    const listElement = document.querySelector(".project-list");
+    project.render(listElement);
   });
 };
 
