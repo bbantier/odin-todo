@@ -63,7 +63,7 @@ newProjectButton.addEventListener("click", () => {
   refreshUi();
 });
 
-newTodoButton.addEventListener("click", () => {
-  projectList.getProjectList()[0].addTodo("test", "test", "test", "mid");
-  projectList.getProjectList()[0].store();
-});
+// newTodoButton.addEventListener("click", () => {
+//   projectList.getProjectList()[0].addTodo("test", "test", "test", "mid");
+//   projectList.getProjectList()[0].store();
+// });

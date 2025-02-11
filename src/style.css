@@ -71,15 +71,24 @@ body {
   font-size: 1.4rem;
 }
 
-.new-project {
-  width: 58%;
+.new-project,
+.new-todo {
+  width: 105px;
   margin-top: 15px;
   padding: 2px var(--gen-spacing);
   font-size: 0.7rem;
-  border: 1px solid var(--main-bg-color);
   border-radius: var(--gen-spacing);
   display: flex;
   align-items: center;
   gap: var(--gen-spacing);
   cursor: pointer;
+}
+
+.new-project {
+  border: 1px solid var(--main-bg-color);
+}
+
+.new-todo {
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
 }

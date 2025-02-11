@@ -1,4 +1,4 @@
-import newTodo from "./todo";
+import newTodo, { todoButton } from "./todo";
 
 const createProject = (name, id = crypto.randomUUID()) => {
   const todos = [];
@@ -38,9 +38,14 @@ export default function addProject(name, id) {
     listItem.addEventListener("click", () => {
       const main = document.querySelector(".main");
       const todoItems = document.querySelectorAll(".todo-item");
+      const oldButton = document.querySelector(".new-todo");
+      const button = todoButton();
 
       todoItems.forEach((item) => item.remove());
+      if (oldButton) oldButton.remove();
+
       project.todos.forEach((todo) => todo.render(main));
+      button.render(main);
     });
 
     container.appendChild(listItem);
