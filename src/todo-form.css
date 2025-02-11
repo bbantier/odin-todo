@@ -13,6 +13,7 @@
 .todo-form select {
   background-color: transparent;
   border: 1px solid #afafaf;
+  border-radius: var(--gen-spacing);
   padding: var(--gen-spacing);
   outline: none;
   font-family: var(--main-app-fonts);

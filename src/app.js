@@ -5,7 +5,6 @@ import "./project.css";
 import newProject from "./project";
 
 const newProjectButton = document.querySelector(".new-project");
-const newTodoButton = document.querySelector(".new-todo");
 
 const projectList = (() => {
   const list = [];
@@ -62,8 +61,3 @@ newProjectButton.addEventListener("click", () => {
   projectList.addProject(prompt());
   refreshUi();
 });
-
-// newTodoButton.addEventListener("click", () => {
-//   projectList.getProjectList()[0].addTodo("test", "test", "test", "mid");
-//   projectList.getProjectList()[0].store();
-// });
