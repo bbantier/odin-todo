@@ -64,6 +64,7 @@ body {
   padding: calc(2 * var(--gen-spacing));
   background-color: var(--main-bg-color);
   border-radius: 5px;
+  overflow: auto;
 }
 
 .page-title {
