@@ -46,10 +46,8 @@ const initUi = () => {
 
 const refreshUi = () => {
   const projectItems = document.querySelectorAll(".project-item");
-  const todoItems = document.querySelectorAll(".todo-item");
 
   projectItems.forEach((item) => item.remove());
-  todoItems.forEach((item) => item.remove());
 
   projectList.getProjectList().forEach((project) => {
     const listElement = document.querySelector(".project-list");

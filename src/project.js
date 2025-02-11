@@ -20,6 +20,7 @@ export default function addProject(name, id) {
 
   const refresh = () => {
     const storedTodos = JSON.parse(localStorage.getItem(project.id)).todos;
+
     storedTodos.forEach((todo) => {
       project.todos.push(
         newTodo(todo.title, todo.description, todo.dueDate, todo.priority)
@@ -36,7 +37,9 @@ export default function addProject(name, id) {
 
     listItem.addEventListener("click", () => {
       const main = document.querySelector(".main");
+      const todoItems = document.querySelectorAll(".todo-item");
 
+      todoItems.forEach((item) => item.remove());
       project.todos.forEach((todo) => todo.render(main));
     });
 
