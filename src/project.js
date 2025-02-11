@@ -25,8 +25,6 @@ export default function addProject(name, id) {
         newTodo(todo.title, todo.description, todo.dueDate, todo.priority)
       );
     });
-
-    console.log(storedTodos);
   };
 
   const render = (container) => {
@@ -40,7 +38,6 @@ export default function addProject(name, id) {
       const main = document.querySelector(".main");
 
       project.todos.forEach((todo) => todo.render(main));
-      console.log(project.todos);
     });
 
     container.appendChild(listItem);
