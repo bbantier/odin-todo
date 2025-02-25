@@ -23,6 +23,7 @@ export default function addProject(name, id) {
   const refresh = () => {
     const storedTodos = JSON.parse(localStorage.getItem(project.id)).todos;
 
+    project.todos = [];
     storedTodos.forEach((todo) => {
       project.todos.push(
         newTodo(todo.title, todo.description, todo.dueDate, todo.priority)
@@ -69,5 +70,11 @@ export default function addProject(name, id) {
     button.render(main);
   };
 
-  return Object.assign({}, project, { addTodo, store, refresh, render, refreshRenderedList });
+  return Object.assign({}, project, {
+    addTodo,
+    store,
+    refresh,
+    render,
+    refreshRenderedList,
+  });
 }
