@@ -1,5 +1,6 @@
 import newTodo, { todoButton } from "./todo";
 import listSvg from "./list.svg"
+import { projectList } from "./app";
 
 const createProject = (name, id = crypto.randomUUID()) => {
   const todos = [];
@@ -47,6 +48,9 @@ export default function addProject(name, id) {
       const todoItems = document.querySelectorAll(".todo-item");
       const oldButton = document.querySelector(".new-todo");
       const button = todoButton();
+      const currentProjectIndex = projectList.getProjectList().map((object) => object.id).indexOf(project.id);
+
+      projectList.setCurrentProject(currentProjectIndex);
 
       todoItems.forEach((item) => item.remove());
       if (oldButton) oldButton.remove();

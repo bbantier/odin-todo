@@ -66,3 +66,5 @@ newProjectButton.addEventListener("click", () => {
   projectList.addProject(prompt());
   refreshUi();
 });
+
+export { projectList };
