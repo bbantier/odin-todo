@@ -8,6 +8,7 @@ const newProjectButton = document.querySelector(".new-project");
 
 const projectList = (() => {
   const list = [];
+  let currentProject = list[0];
 
   const init = () => {
     Object.keys(localStorage).forEach((key) => {
@@ -24,6 +25,10 @@ const projectList = (() => {
   };
 
   const getProjectList = () => list;
+  const getCurrentProject = () => currentProject;
+  const setCurrentProject = (index) => {
+    currentProject = list[index];
+  }
 
   const render = (container, before) => {
     const listElement = document.createElement("ul");
@@ -32,7 +37,7 @@ const projectList = (() => {
     container.insertBefore(listElement, before);
   };
 
-  return { init, addProject, getProjectList, render };
+  return { init, addProject, getProjectList, getCurrentProject, setCurrentProject, render };
 })();
 
 const initUi = () => {
