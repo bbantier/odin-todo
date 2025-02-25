@@ -44,6 +44,7 @@ export const todoButton = () => {
       const form = todoForm();
 
       form.render(main);
+      button.remove();
     });
 
     container.appendChild(button);
@@ -96,8 +97,10 @@ export const todoForm = () => {
         priorityInput.value
       );
 
-      currentProject.refresh();
       currentProject.store();
+      form.remove();
+
+      currentProject.refreshRenderedList();
     });
 
     container.appendChild(form);
