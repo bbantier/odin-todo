@@ -1,4 +1,5 @@
 import plusSvg from "./plus-dark.svg";
+import { projectList } from "./app";
 
 const createTodo = (title, description, dueDate, priority) => {
   const id = crypto.randomUUID();
@@ -43,7 +44,7 @@ export const todoButton = () => {
       const form = todoForm();
 
       form.render(main);
-    })
+    });
 
     container.appendChild(button);
   };
@@ -73,7 +74,7 @@ export const todoForm = () => {
       <option>High</option>
       <option selected="true">Medium</option>
       <option>Low</option>
-    `
+    `;
 
     addButton.textContent = "Add";
     addButton.type = "submit";
@@ -85,11 +86,22 @@ export const todoForm = () => {
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      
-    })
+
+      const currentProject = projectList.getCurrentProject();
+
+      currentProject.addTodo(
+        titleInput.value,
+        descriptionInput.value,
+        dateInput.value,
+        priorityInput.value
+      );
+
+      currentProject.refresh();
+      currentProject.store();
+    });
 
     container.appendChild(form);
-  }
+  };
 
   return { render };
-}
+};
