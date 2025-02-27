@@ -7,7 +7,8 @@
   justify-content: space-between;
 }
 
-.todo-item .todo-item-left {
+.todo-item .todo-item-left,
+.todo-item .todo-item-right {
   display: flex;
   align-items: center;
   gap: var(--gen-spacing);
@@ -17,10 +18,18 @@
   font-size: 0.9rem;
 }
 
-.todo-item .todo-date {
+.todo-item .todo-date,
+.todo-item .todo-priority {
   padding: 2px var(--gen-spacing);
   background-color: #afafaf;
   color: white;
   border-radius: 10px;
   font-size: 0.7rem;
+}
+
+.todo-item .todo-delete {
+  padding: 1px;
+  background-color: red;
+  width: 18px;
+  border-radius: 5px;
 }
