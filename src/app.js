@@ -57,8 +57,11 @@ const initUi = () => {
 
 const refreshUi = () => {
   const projectItems = document.querySelectorAll(".project-item");
+  const main = document.querySelector(".main");
 
   projectItems.forEach((item) => item.remove());
+
+  while (main.lastChild) main.removeChild(main.lastChild);
 
   projectList.getProjectList().forEach((project) => {
     const listElement = document.querySelector(".project-list");

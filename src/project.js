@@ -45,19 +45,20 @@ export default function addProject(name, id) {
 
   const render = (container) => {
     const listItem = document.createElement("li");
+    const listItemLeftDiv = document.createElement("div");
+    const listIcon = document.createElement("img");
+    const listItemTitle = document.createElement("p");
     const deleteButton = document.createElement("img");
-
-    listItem.innerHTML = `
-      <div>
-        <img src="${listSvg}">
-        ${project.name}
-      </div>  
-    `;
 
     listItem.id = project.id;
     listItem.className = "project-item";
 
-    listItem.addEventListener("click", () => {
+    listIcon.src = listSvg;
+
+    listItemTitle.textContent = project.name;
+
+    listItemLeftDiv.append(listIcon, listItemTitle);
+    listItemLeftDiv.addEventListener("click", () => {
       refreshRenderedList();
     });
 
@@ -69,8 +70,8 @@ export default function addProject(name, id) {
         return;
       }
     });
-    listItem.appendChild(deleteButton);
 
+    listItem.append(listItemLeftDiv, deleteButton);
     container.appendChild(listItem);
   };
 
