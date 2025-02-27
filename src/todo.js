@@ -2,6 +2,7 @@ import plusSvg from "./plus-dark.svg";
 import { projectList } from "./app";
 import { format } from "date-fns";
 import trashIcon from "./trash.svg";
+import projectObject from "./project";
 
 const createTodo = (title, description, dueDate, priority) => {
   const id = crypto.randomUUID();
@@ -17,6 +18,7 @@ export default function addTodo(title, description, dueDate, priority) {
     const todoItem = document.createElement("div");
 
     todoItem.className = "todo-item";
+    todoItem.id = todo.id;
     todoItem.innerHTML = `
       <div class="todo-item-left">
         <input type="checkbox">
@@ -25,7 +27,6 @@ export default function addTodo(title, description, dueDate, priority) {
       <div class="todo-item-right">
         <div class="todo-priority">${priority}</div>
         <div class="todo-date">${dueDate}</div>
-        <img class="todo-delete" src=${trashIcon}>
       </div>
     `;
 
