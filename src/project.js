@@ -1,5 +1,6 @@
 import newTodo, { todoButton } from "./todo";
 import listSvg from "./list.svg";
+import trashSvg from "./trash.svg";
 import { projectList } from "./app";
 
 const createProject = (name, id = `project-${projectList.getProjectList().length + 1}`) => {
@@ -33,6 +34,7 @@ export default function addProject(name, id) {
 
   const render = (container) => {
     const listItem = document.createElement("li");
+    const deleteButton = document.createElement("img");
 
     listItem.innerHTML = `
       <div>
@@ -47,6 +49,16 @@ export default function addProject(name, id) {
     listItem.addEventListener("click", () => {
       refreshRenderedList();
     });
+
+    deleteButton.src = trashSvg;
+    deleteButton.addEventListener("click", () => {
+      if (confirm("Are you sure you want to remove this project?")) {
+        projectList.removeProject(project.id);
+      } else {
+        return;
+      }
+    })
+    listItem.appendChild(deleteButton);
 
     container.appendChild(listItem);
   };

@@ -25,10 +25,9 @@ const projectList = (() => {
   };
 
   const removeProject = (id) => {
-    const projectIds = list.map((object) => object.id);
-
-    list.splice(projectIds.findIndex(id), 0);
-    localStorage.getItem(id).remove();
+    list.splice(list.map((project) => project.id).indexOf(id), 1);
+    console.log(list);
+    localStorage.removeItem(id);
   }
 
   const getProjectList = () => list;
