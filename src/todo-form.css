@@ -53,11 +53,15 @@ textarea {
 .form-bottom button,
 .form-bottom select {
   padding: var(--gen-spacing);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #606368;
   text-align: center;
   border: 1px solid #afafaf;
   border-radius: var(--gen-spacing);
+}
+
+.form-bottom button {
+  background-color: transparent;
 }
 
 .form-bottom .date-button {
