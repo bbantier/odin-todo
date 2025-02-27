@@ -1,5 +1,6 @@
 import plusSvg from "./plus-dark.svg";
 import { projectList } from "./app";
+import { format } from "date-fns";
 
 const createTodo = (title, description, dueDate, priority) => {
   const id = crypto.randomUUID();
@@ -65,6 +66,9 @@ export const todoForm = () => {
     const priorityInput = document.createElement("select");
     const addButton = document.createElement("button");
 
+    const dateValue = format(new Date(), "yyyy-MM-dd");
+    console.log(dateValue);
+
     form.className = "todo-form";
     formTop.className = "form-top";
     formBottom.className = "form-bottom";
@@ -76,6 +80,9 @@ export const todoForm = () => {
       <option selected="true">Medium</option>
       <option>Low</option>
     `;
+
+    dateInput.type = "date";
+    dateInput.value = dateValue;
 
     addButton.textContent = "Add";
     addButton.type = "submit";
