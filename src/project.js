@@ -2,7 +2,7 @@ import newTodo, { todoButton } from "./todo";
 import listSvg from "./list.svg";
 import { projectList } from "./app";
 
-const createProject = (name, id = crypto.randomUUID()) => {
+const createProject = (name, id = `project-${projectList.getProjectList().length + 1}`) => {
   const todos = [];
 
   return { name, id, todos };
