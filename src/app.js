@@ -26,8 +26,9 @@ const projectList = (() => {
 
   const removeProject = (id) => {
     list.splice(list.map((project) => project.id).indexOf(id), 1);
-    console.log(list);
     localStorage.removeItem(id);
+
+    refreshUi();
   }
 
   const getProjectList = () => list;
@@ -69,7 +70,11 @@ const refreshUi = () => {
 document.addEventListener("DOMContentLoaded", () => initUi());
 
 newProjectButton.addEventListener("click", () => {
-  projectList.addProject(prompt());
+  const projectName = prompt("What do you want to call the new project?");
+
+  if (!projectName) return;
+  projectList.addProject(projectName);
+
   refreshUi();
 });
 
