@@ -24,6 +24,13 @@ const projectList = (() => {
     project.store();
   };
 
+  const removeProject = (id) => {
+    const projectIds = list.map((object) => object.id);
+
+    list.splice(projectIds.findIndex(id), 0);
+    localStorage.getItem(id).remove();
+  }
+
   const getProjectList = () => list;
   const getCurrentProject = () => currentProject;
   const setCurrentProject = (index) => {
@@ -37,7 +44,7 @@ const projectList = (() => {
     container.insertBefore(listElement, before);
   };
 
-  return { init, addProject, getProjectList, getCurrentProject, setCurrentProject, render };
+  return { init, addProject, removeProject, getProjectList, getCurrentProject, setCurrentProject, render };
 })();
 
 const initUi = () => {
