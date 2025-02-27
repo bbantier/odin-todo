@@ -3,7 +3,10 @@ import listSvg from "./list.svg";
 import trashSvg from "./trash.svg";
 import { projectList } from "./app";
 
-const createProject = (name, id = `project-${projectList.getProjectList().length + 1}`) => {
+const createProject = (
+  name,
+  id = `project-${projectList.getProjectList().length + 1}`
+) => {
   const todos = [];
 
   return { name, id, todos };
@@ -15,6 +18,14 @@ export default function addProject(name, id) {
   const addTodo = (title, description, dueDate, priority) => {
     const todo = newTodo(title, description, dueDate, priority);
     project.todos.push(todo);
+  };
+
+  const removeTodo = (id) => {
+    const currentProject = projectList.getCurrentProject();
+    const todos = currentProject.todos;
+
+    todos.splice(todos.map((todo) => todo.id).indexOf(id), 1);
+    currentProject.store();
   };
 
   const store = () => {
@@ -57,7 +68,7 @@ export default function addProject(name, id) {
       } else {
         return;
       }
-    })
+    });
     listItem.appendChild(deleteButton);
 
     container.appendChild(listItem);
@@ -84,6 +95,7 @@ export default function addProject(name, id) {
 
   return Object.assign({}, project, {
     addTodo,
+    removeTodo,
     store,
     refresh,
     render,
